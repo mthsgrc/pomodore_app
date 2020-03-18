@@ -96,6 +96,9 @@ function startRest() {
 resetBtn.addEventListener("click", () => {
     //stop setInterval function on counter
     clearInterval(pomodore.ticker);
+
+    pomodore.totalSeconds = 1500;
+    pomodore.restSeconds = 300;
     //set up pomodore initial values
     initialPomodore();
     //start btn visible again
