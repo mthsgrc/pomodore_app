@@ -2,12 +2,14 @@
 
 const playBtn = document.querySelector(".play-btn");
 const resetBtn = document.querySelector(".reset-btn");
-// const displayMinutes = document.querySelector("#display-minutes");
-// const displaySeconds = document.querySelector("#display-seconds");
-// const pomodoreDisplay = document.querySelector(".pomodore-display");
+const setBtn = document.querySelector(".set-btn");
 
 //create pomodore obj
 let pomodore = {};
+
+// values for pomodore work and rest
+pomodore.totalSeconds = 1500;
+pomodore.restSeconds = 300;
 
 
 //run initial pomodore set up
@@ -17,10 +19,6 @@ initialPomodore();
 
 //set up values for pomodore, and insert into DOM
 function initialPomodore() {
-
-    // values for pomodore work and rest
-    pomodore.totalSeconds = 1500;
-    pomodore.restSeconds = 300;
 
     // get the display of valuew (minutes and seconds)
     pomodore.minutes = document.getElementById("display-minutes");
@@ -102,5 +100,21 @@ resetBtn.addEventListener("click", () => {
     initialPomodore();
     //start btn visible again
     playBtn.style.visibility = "visible";
+
+});
+
+setBtn.addEventListener("click", () => {
+    clearInterval(pomodore.ticker);
+
+    let totalTime = prompt("Set Total Work Time:", "25");
+    let restTime = prompt("Set Rest Time:", "5");
+
+    totalTime *= 60;
+    restTime *= 60;
+
+    pomodore.totalSeconds = totalTime;
+    pomodore.restSeconds = restTime;
+
+    initialPomodore();
 
 });
