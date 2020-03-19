@@ -49,6 +49,9 @@ playBtn.addEventListener("click", () => {
             if (pomodore.totalSeconds <= 0) {
                 clearInterval(pomodore.ticker);
                 pomodore.totalSeconds = 0;
+
+                let alertSound = new Audio("alert.mp3");
+                alertSound.play();
                 startRest();
             }
 
@@ -76,6 +79,8 @@ function startRest() {
             if (pomodore.restSeconds <= 0) {
                 clearInterval(pomodore.ticker);
                 pomodore.restSeconds = 0;
+                let alertSound = new Audio("alert.mp3");
+                alertSound.play();
             }
 
             // calculate remaining time
