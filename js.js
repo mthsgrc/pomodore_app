@@ -110,7 +110,9 @@ setBtn.addEventListener("click", () => {
     clearInterval(pomodore.ticker);
 
     let totalTime = prompt("Set Total Work Time:", "25");
+      totalTime == null ? totalTime = 25 : totalTime;  
     let restTime = prompt("Set Rest Time:", "5");
+      restTime == null ? restTime = 5 : restTime;  
 
     totalTime *= 60;
     restTime *= 60;
@@ -119,5 +121,6 @@ setBtn.addEventListener("click", () => {
     pomodore.restSeconds = restTime;
 
     initialPomodore();
+    playBtn.style.visibility = "visible";
 
 });
